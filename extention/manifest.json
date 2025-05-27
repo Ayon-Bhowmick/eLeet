@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "eLeet",
+  "version": "1.0",
+  "description": "Competitive LeetCode",
+  "permissions": ["activeTab", "scripting", "aiLanguageModelOriginTrial"],
+  "trial_tokens": ["AgwOw8louFme3R9/PK9vs6A8FplCGoLEnuasTVcC6hqatNYT+CDLrdCGRHM26S/mXQcjsUhPCGRZW+X9zgZIaAUAAAB4eyJvcmlnaW4iOiJjaHJvbWUtZXh0ZW5zaW9uOi8vbmxuYWlhY2JpaGlvZGptZ2ltcGpmZmNtZG1pZ2xkbm4iLCJmZWF0dXJlIjoiQUlQcm9tcHRBUElGb3JFeHRlbnNpb24iLCJleHBpcnkiOjE3NjA0ODYzOTl9", "AijGnwc3Nd3siM8RCWOTxNpl88TJEe3j5K8X39IEL9uGd3EBUGBKLbhc0USFu1eJZQ0BpkDBFGehU0IgQVX5nAgAAABzeyJvcmlnaW4iOiJjaHJvbWUtZXh0ZW5zaW9uOi8vbmxuYWlhY2JpaGlvZGptZ2ltcGpmZmNtZG1pZ2xkbm4iLCJmZWF0dXJlIjoiQUlTdW1tYXJpemF0aW9uQVBJIiwiZXhwaXJ5IjoxNzUzMTQyNDAwfQ=="],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
