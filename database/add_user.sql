@@ -2,6 +2,7 @@ CREATE OR REPLACE PROCEDURE add_user(p_username VARCHAR, p_password VARCHAR)
 LANGUAGE plpgsql
 AS $$
 DECLARE
+    v_id NUMERIC;
     v_salt VARCHAR(255);
     v_password_hash VARCHAR(255);
 BEGIN
@@ -22,13 +23,15 @@ BEGIN
 
     INSERT INTO user (username, password_hash, salt)
     VALUES (p_username, v_password_hash, v_salt)
+    RETURNING id INTO v_id
     ON CONFLICT (username) DO NOTHING; -- ignore if username already exists
+
 
     -- check if the insert worked
     IF NOT FOUND THEN
         RAISE 'username % already exists', p_username;
     END IF;
 
-    RAISE NOTICE 'user % added', p_username;
+    RAISE NOTICE 'user % added with id: %', p_username, v_id;
 END;
 $$;
