@@ -10,4 +10,4 @@ CREATE OR REPLACE TABLE solution (
     code TEXT NOT NULL,
     FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE,
     UNIQUE (user_id, prob_name, date_time)
-)
+);

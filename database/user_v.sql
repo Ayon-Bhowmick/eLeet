@@ -8,4 +8,4 @@ LEFT JOIN (
         max(date_time) AS last_solved
     FROM solution
     GROUP BY user_id
-) s ON u.id = s.user_id
+) s ON u.id = s.user_id;
