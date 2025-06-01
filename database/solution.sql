@@ -8,6 +8,9 @@ CREATE OR REPLACE TABLE solution (
     memory NUMERIC NOT NULL,
     memory_percent NUMERIC NOT NULL,
     code TEXT NOT NULL,
+    hide_info BOOLEAN NOT NULL DEFAULT FALSE,
+    comment TEXT,
+    hide_comment BOOLEAN NOT NULL DEFAULT FALSE,
     FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE,
     UNIQUE (user_id, prob_name, date_time)
 );

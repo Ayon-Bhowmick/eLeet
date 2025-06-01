@@ -7,6 +7,9 @@ CREATE OR REPLACE PROCEDURE add_solution(
     p_memory NUMERIC,
     p_memory_percent NUMERIC,
     p_code TEXT
+    p_hide_info BOOLEAN,
+    p_comment TEXT,
+    p_hide_comment BOOLEAN
 )
 LANGUAGE plpgsql
 AS $$
@@ -15,7 +18,8 @@ DECLARE
 BEGIN
     IF p_username IS NULL OR p_prob_name IS NULL OR p_date_time IS NULL OR
        p_runtime IS NULL OR p_runtime_percent IS NULL OR
-       p_memory IS NULL OR p_memory_percent IS NULL OR p_code IS NULL THEN
+       p_memory IS NULL OR p_memory_percent IS NULL OR p_code IS NULL OR
+       p_hide_info IS NULL OR p_hide_comment IS NULL THEN
         RAISE 'all parameters must be provided and cannot be null';
     END IF;
     IF length(p_prob_name) < 1 OR length(p_prob_name) > 255 THEN
@@ -43,7 +47,10 @@ BEGIN
         runtime_percent,
         memory,
         memory_percent,
-        code
+        code,
+        hide_info,
+        comment,
+        hide_comment
     )
     VALUES (
         v_user_id,
@@ -53,7 +60,10 @@ BEGIN
         p_runtime_percent,
         p_memory,
         p_memory_percent,
-        p_code
+        p_code,
+        p_hide_info,
+        p_comment,
+        p_hide_comment
     )
     ON CONFLICT (user_id, prob_name, date_time) DO NOTHING;
 
