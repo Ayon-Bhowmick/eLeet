@@ -14,6 +14,10 @@ async function scrapeData() {
 	const [runtime, runtimePercent, memory, memoryPercent] = Array.from(elements).map(el => el.textContent.trim());
 	const code = document.querySelector("code").textContent.trim();
 
+	// would also be good to get problem difficulty and language used
+	// maybe have a problem table that would have the info for the any problem that has a submitted solution with info about it
+	// could trigger api to get prob info if a solution is added for a new problem
+
 	// const capabilities = await ai.summarizer.capabilities();
 	// if (capabilities.available !== "readily") {
 	// 		console.error("no ai", capabilities);
