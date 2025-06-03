@@ -5,11 +5,137 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>eLeet</title>
+    <style>
+        body {
+            width: 350px;
+            min-width: 300px;
+            min-height: 200px;
+            padding: 16px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            resize: both;
+            overflow: auto;
+        }
+        .data-container {
+            margin-top: 16px;
+            display: none;
+            height: calc(100% - 60px);
+            overflow: auto;
+        }
+        .metric {
+            margin: 8px 0;
+            padding: 8px;
+            background: #f5f5f5;
+            border-radius: 4px;
+        }
+        .metric-title {
+            font-weight: bold;
+            color: #666;
+        }
+        .code-preview {
+            margin-top: 16px;
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 12px;
+            border-radius: 4px;
+            font-family: 'Consolas', monospace;
+            font-size: 12px;
+            height: calc(100% - 200px);
+            min-height: 100px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            line-height: 1.5;
+        }
+        .code-preview::-webkit-scrollbar {
+            width: 8px;
+        }
+        .code-preview::-webkit-scrollbar-track {
+            background: #2d2d2d;
+            border-radius: 4px;
+        }
+        .code-preview::-webkit-scrollbar-thumb {
+            background: #666;
+            border-radius: 4px;
+        }
+        .code-preview::-webkit-scrollbar-thumb:hover {
+            background: #888;
+        }
+        button {
+            padding: 8px 16px;
+            background: #ffa116;
+            color: #1a1a1a;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        button:hover {
+            background: #ff8c00;
+        }
+        .submit-btn {
+            margin-top: 16px;
+            padding: 8px 16px;
+            background: #ffa116;
+            color: #1a1a1a;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .submit-btn:hover {
+            background: #ff8c00;
+        }
+        .resize-handle {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 20px;
+            height: 20px;
+            cursor: default;
+            background: transparent;
+        }
+        .resize-handle:hover {
+            background: transparent;
+        }
+    </style>
 </head>
 
 <body>
     <h1>eLeet</h1>
-    <button id="butt">get data</button>
+    <div id="dataContainer" class="data-container">
+        <div class="metric">
+            <span class="metric-title">Problem:</span>
+            <span id="problemName"></span>
+        </div>
+        <div class="metric">
+            <span class="metric-title">Difficulty:</span>
+            <span id="difficulty"></span>
+        </div>
+        <div class="metric">
+            <span class="metric-title">Runtime Percent:</span>
+            <span id="runtimePercent"></span>
+        </div>
+        <div class="metric">
+            <span class="metric-title">Date:</span>
+            <span id="date"></span>
+        </div>
+        <!-- <div class="metric">
+            <span class="metric-title">Runtime:</span>
+            <span id="runtime"></span>
+        </div> -->
+        <!-- <div class="metric">
+            <span class="metric-title">Memory:</span>
+            <span id="memory"></span>
+        </div>
+        <div class="metric">
+            <span class="metric-title">Memory Percentile:</span>
+            <span id="memoryPercent"></span>
+        </div> -->
+        <div class="code-preview" id="codePreview"></div>
+        <button id="submitToDb" class="submit-btn">Submit</button>
+    </div>
+    <div class="resize-handle"></div>
     <script src="popup.js"></script>
 </body>
 

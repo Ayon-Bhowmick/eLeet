@@ -3,7 +3,15 @@
   "name": "eLeet",
   "version": "1.0",
   "description": "Competitive LeetCode",
-  "permissions": ["activeTab", "scripting"],
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "https://leetcode.com/*"
+  ],
   "action": {
     "default_popup": "popup.html"
   }
